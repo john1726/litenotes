@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,11 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//Route::resource('/notes', ); 
-//Route::resource('/programs', ); 
-//Route::resource('/events', ); 
-//Route::resource('/newsletters', ); 
-//Route::resource('/photos', ); 
-
+Route::resource('/notes', NoteController::class)->middleware(['auth']); 
+Route::resource('/programs', ProgramController::class); 
+Route::resource('/events', EventController::class); 
+Route::resource('/newsletters', NewsletterController::class);
+Route::resource('/photos', PhotoController::class); 
 
 require __DIR__.'/auth.php';
