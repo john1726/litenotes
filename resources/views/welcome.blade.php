@@ -33,6 +33,6 @@
             <h1 class="text-5xl">
                 LiteNotes
             </h1>
-        </div>
+       </div>
     </body>
 </html>
